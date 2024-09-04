@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1ee9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 20px;
+  }
+  .post-container {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .post-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .post-header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .post-header-info h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  .post-header-info h6 {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  .follow-btn {
+    background-color: #0095f6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: auto;
+  }
+  
+  .follow-btn:hover {
+    background-color: #007bbd;
+  }
+  
+  .follow-btn.following {
+    background-color: #e0e0e0;
+    color: #000;
+  }
+   .post-image {
+    width: 100%;
+    height: auto;
+  }
+  .post-image video {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .post-image video {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .post-content {
+    padding: 15px;
+    line-height: 2;
+  }
+  .post-content span {
+      color:#0095f6;
+  }
+  .post-icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-top: 1px solid #eee;
+  }
+  .icon-group {
+    display: flex;
+    align-items: center;
+  }
+  .post-icons i {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .post-icons i:hover {
+    color: #888;
+  }
+  .post-icons span {
+    margin-left: 8px;
+    font-size: 16px;
+  }
