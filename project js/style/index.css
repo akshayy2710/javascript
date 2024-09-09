@@ -1,0 +1,12 @@
+
+ .main-box-2 h5{
+    margin-top: 52%;
+    font-size: 24px;
+  }
+  .main-box-2 {
+    width: 33%;
+    height: 78vh;
+    display: flex;
+    margin-left: 670px;
+  }
+ 
