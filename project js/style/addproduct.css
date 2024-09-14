@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+#navbar {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  background-color: #f8f9fa; 
+  border-radius: 8px;
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+#productdata {
+  width: 50%;
+  height: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-floating {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-floating > .form-control {
+  height: calc(3.5rem + 2px);
+  padding: 1rem 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.form-floating > .form-control::placeholder {
+  color: transparent;
+}
+
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  transition: 0.1s ease-in-out;
+  background-color: #ffffff;
+  color: #6c757d;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  top: -0.75rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: #0d6efd;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem; 
+  font-size: 1rem; 
+  color: #fff; 
+  background-color: #007bff; 
+  border: none; 
+  border-radius: 4px;
+  cursor: pointer; 
+  transition: background-color 0.2s ease; 
+}
+
+button:hover {
+  background-color: #0056b3; 
+}
+
+button:focus {
+  outline: none;
+}
