@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.main {
+  background: url(./img/field-clouds-sky-earth-46160.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 690px;
+  height: 200px;
+  padding: 30px;
+  border-radius: 10px;
+  backdrop-filter: blur(100px);
+  color: white;
+}
+
+.left-section,
+.center-section,
+.right-section {
+  display: flex;
+  flex-direction: column;
+}
+.middle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.left-section {
+  align-items: flex-start;
+}
+
+.center-section {
+  align-items: center;
+}
+
+.right-section {
+  align-items: flex-end;
+}
+
+.time-main {
+  display: flex;
+  gap: 10px;
+}
+
+#weather-icon {
+  width: 111px;
+}
+.center-main-2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+#temperature {
+  font-size: 5.5em;
+  line-height: 0.7;
+}
+.degree,.degree-f {
+  font-size: 0.35em;
+  vertical-align: top;
+  margin: 0 4px;
+  cursor: pointer;
+}
+#description {
+  font-size: 24px;
+  margin: 10px 0 0 10px;
+}
+#city {
+  font-size: 1.6rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.country{
+  margin-left: 5px;
+}
+#date,
+#time,
+#ampm,
+.right-section div {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.degree.active {
+  color: #02ccfe; 
+}
+
+.degree-f.active {
+  color: #02ccfe; 
+}
+
+input[type="text"] {
+  width: 550px;
+  padding: 10px;
+  margin: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  color: #000000;
+}
+
+#submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #278db5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #6EC6E4;
+  }
+}
