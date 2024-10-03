@@ -5,7 +5,7 @@ handleLogout();
 
 let data = JSON.parse(localStorage.getItem("signupdata")) || []; 
 
-const signindata = (e) => {
+const logindata = (e) => {
     e.preventDefault();
     let user = {
         email: document.getElementById("email").value,
@@ -26,4 +26,4 @@ const signindata = (e) => {
     }
 };
 
-document.getElementById("userData").addEventListener("submit", signindata);
+document.getElementById("userData").addEventListener("submit", logindata);
