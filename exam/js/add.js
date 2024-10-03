@@ -27,7 +27,7 @@ const product=async(e)=>{
         alert("Please select a category")
         return
     }
-    postdata(product)
+    data(product)
     alert("Product uploaded successfully")
 }
 document.getElementById("productData").addEventListener("submit",product)
