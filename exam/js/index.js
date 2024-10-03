@@ -4,7 +4,7 @@ document.getElementById("navbar").innerHTML = navbar();
 handleLogout();
 
 let data = JSON.parse(localStorage.getItem("signupdata")) || [];
-let AllContent = [];
+let ProductContent = [];
 
 const content = (displayData) => {
   document.getElementById("all-contents").innerHTML = ""; 
@@ -40,7 +40,7 @@ sidebar();
 
 const searching = () => {
   let searchValue = document.getElementById("searching").value.toLowerCase();
-  let filteredData = AllContent.filter((ele) => 
+  let filteredData = ProductContent.filter((ele) => 
     ele.name.toLowerCase().includes(searchValue)
   );
   content(filteredData);
@@ -49,7 +49,7 @@ const searching = () => {
 document.getElementById("search").addEventListener("click", searching);
 
 const sorting = (order) => {
-  let sortedData = [...AllContent];
+  let sortedData = [...ProductContent];
   if (order === "lth") {
     sortedData.sort((a, b) => a.price - b.price);
   } else {
@@ -64,9 +64,9 @@ document.getElementById("sort-select").addEventListener("change", (e) => {
 
 const filterByCategory = (category) => {
   if (category === "all") {
-    content(AllContent);
+    content(ProductContent);
   } else {
-    let filteredData = AllContent.filter((ele) => ele.category === category);
+    let filteredData = ProductContent.filter((ele) => ele.category === category);
     content(filteredData);
   }
 };
