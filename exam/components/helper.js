@@ -44,20 +44,5 @@ export const navbar = () => {
   `;
 };
 
-export const handleLogout = () => {
-  const logout = document.getElementById("logout");
-
-  if (logout && localStorage.getItem("Login")) {
-    logout.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (confirm("Are you sure you want to logout?")) {
-        localStorage.removeItem("username");
-        localStorage.removeItem("Login");
-        localStorage.removeItem("signupdata");
-        window.location.href = "/exam/index.html";
-      }
-    });
-  }
-};
-
+export default navbar 
 
