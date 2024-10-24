@@ -15,13 +15,13 @@ const clock = () => {
 if (seconds < 10) {
   seconds = "0" + seconds;
 }
-
-if (hours > 12) {
-  hours -= 12;
-}
-
+  
 if (hours < 10) {
   hours = "0" + hours;
+}
+  
+  if (hours > 12) {
+  hours -= 12;
 }
 
 times.innerHTML = `${hours}:${minutes}:${seconds}`;
@@ -33,4 +33,5 @@ const weekDay = days[date.getDay()];
 const month = months[date.getMonth()];
 dates.innerHTML = `${weekDay}, ${dayMonth} ${month} ${year}`;
 }
+clock();
 setInterval(clock, 1000);
