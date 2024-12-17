@@ -1,76 +1,99 @@
-import { navbar, handleLogout } from "../components/helper.js";
+let productdata = [];
+let cart = [];
 
-document.getElementById("navbar").innerHTML = navbar();
-handleLogout();
+const getFormData = (e) => {
+    e.preventDefault();
+    let title = document.getElementById("title").value;
+    let price = document.getElementById("price").value;
+    let image = document.getElementById("image").value;
 
-let data = JSON.parse(localStorage.getItem("signupdata")) || [];
-let ProductContent = [];
+    const product = {
+        title,
+        price,
+        image,
+    };
 
-const content = (displayData) => {
-  document.getElementById("all-contents").innerHTML = ""; 
-  displayData.map((items) => {
-    let div = document.createElement("div");
-    div.className = "main-contents";
-    div.innerHTML = `
-        <img src="${items.image}" alt="product-image">
-        <h1>name: ${items.name}</h1>
-        <h1>price: ${items.price} ₹</h1>
-        <h1>category: ${items.category}</h1>
-        <button class="delete-btn" data-id="${items.id}">delete</button>
-      `;
-    document.getElementById("all-contents").append(div);
-  });
+    productdata.push(product);
+    displayproduct(productdata);
 };
 
-const sidebar = async () => {
-  document.getElementById("sidebar").innerHTML = "";
-  data.map((item) => {
-    let div = document.createElement("div");
-    div.className = "sidebar-content";
-    div.innerHTML = `
-      <img src="${item.img}" alt="profile-pic">
-      <h1>${item.username}</h1>
-    `;
-    document.getElementById("sidebar").append(div);
-  });
+const displayproduct = (data) => {
+    document.getElementById("display").innerHTML = "";
+    data.map((value, index) => {
+        const div = document.createElement("div");
+
+        const title = document.createElement("p");
+        title.innerHTML =  value.title;
+
+        const price = document.createElement("p");
+        price.innerHTML = value.price;
+
+        const image = document.createElement("img");
+        image.src = value.image;
+        image.style.width = "250px";       
+
+        const addCartButton = document.createElement("button");
+        addCartButton.innerHTML = " Cart";
+        addCartButton.addEventListener("click", () => Cartproduct(value));
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.addEventListener("click", () => deleteproductData(index));
+
+        div.append(image, title, price, addCartButton, deleteButton);
+        document.getElementById("display").append(div);
+    });
 };
 
-
-sidebar();
-
-const searching = () => {
-  let searchValue = document.getElementById("searching").value.toLowerCase();
-  let filteredData = ProductContent.filter((ele) => 
-    ele.name.toLowerCase().includes(searchValue)
-  );
-  content(filteredData);
+const deleteproductData = (index) => {
+    productdata.splice(index, 1);  
+    displayproduct(productdata);      
 };
 
-document.getElementById("search").addEventListener("click", searching);
-
-const sorting = (order) => {
-  let sortedData = [...ProductContent];
-  if (order === "lth") {
-    sortedData.sort((a, b) => a.price - b.price);
-  } else {
-    sortedData.sort((a, b) => b.price - a.price);
-  }
-  content(sortedData);
+const deletecartData = (index) => {
+    cart.splice(index,1);
+    displayCart(cart);
 };
 
-document.getElementById("sort-select").addEventListener("change", (e) => {
-  sorting(e.target.value);
-});
+const Cartproduct = (value) => {
+    const result = cart.indexOf(value);
 
-const filterByCategory = (category) => {
-  if (category === "all") {
-    content(ProductContent);
-  } else {
-    let filteredData = ProductContent.filter((ele) => ele.category === category);
-    content(filteredData);
-  }
+    if (result !== -1) {
+        cart[result].qty++
+    } else {
+        value.qty = 1;
+        cart.push(value);
+    }
+    displayCart();
 };
 
-document.getElementById("filter").addEventListener("change", (e) => {
-  filterByCategory(e.target.value);
-});
+const displayCart = () => {
+    document.getElementById("cart").innerHTML = "";
+    cart.map((value, index) => {
+        const div = document.createElement("div");
+
+        const title = document.createElement("p"); 
+        title.innerHTML = value.title;
+
+        const price = document.createElement("p");
+         price.innerHTML = value.price;
+
+        const image = document.createElement("img");
+        image.src = value.image;
+        image.style.width = "250px"; 
+        
+        const quantity = document.createElement("p"); 
+        quantity.innerHTML = value.qty;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.addEventListener("click", () => deletecartData(index));
+
+        div.append( image,title, price, quantity,deleteButton);
+        document.getElementById("cart").append(div);
+        
+
+    });
+};
+
+document.getElementById("form").addEventListener("submit", getFormData);
